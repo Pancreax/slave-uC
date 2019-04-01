@@ -1,0 +1,2 @@
+If this shit break with the makefiles, try:
+/opt/microchip/mplabx/v5.15/mplab_platform/bin/prjMakefilesGenerator.sh /home/guilherme/eletronica/slave_uC/slave_uc.X
