@@ -13,6 +13,7 @@
         <itemPath>drivers/gpio.h</itemPath>
         <itemPath>drivers/timers.h</itemPath>
         <itemPath>drivers/ioMapping.h</itemPath>
+        <itemPath>drivers/i2c.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="services" projectFiles="true">
         <itemPath>services/interrupts.h</itemPath>
@@ -32,6 +33,7 @@
         <itemPath>drivers/oscillators.c</itemPath>
         <itemPath>drivers/gpio.c</itemPath>
         <itemPath>drivers/timers.c</itemPath>
+        <itemPath>drivers/i2c.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="services" projectFiles="true">
         <itemPath>services/interrupts.c</itemPath>

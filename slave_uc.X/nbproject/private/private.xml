@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/guilherme/eletronica/slave_uC/slave_uc.X/main.c</file>
+            <file>file:/home/guilherme/eletronica/repos/slave-uC/slave_uc.X/drivers/gpio.c</file>
+            <file>file:/home/guilherme/eletronica/repos/slave-uC/slave_uc.X/main.c</file>
+            <file>file:/home/guilherme/eletronica/repos/slave-uC/slave_uc.X/drivers/timers.h</file>
+            <file>file:/home/guilherme/eletronica/repos/slave-uC/slave_uc.X/drivers/gpio.h</file>
+            <file>file:/home/guilherme/eletronica/repos/slave-uC/slave_uc.X/drivers/i2c.c</file>
+            <file>file:/home/guilherme/eletronica/repos/slave-uC/slave_uc.X/drivers/i2c.h</file>
+            <file>file:/home/guilherme/eletronica/repos/slave-uC/slave_uc.X/services/interrupts.c</file>
         </group>
     </open-files>
 </project-private>

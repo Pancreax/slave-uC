@@ -8,6 +8,7 @@
 #include "interrupts.h"
 #include "../drivers/timers.h"
 #include "../drivers/ioMapping.h"
+#include "../drivers/i2c.h"
 #include "ledService.h"
 
 // timer postscalers
@@ -77,6 +78,15 @@ void __interrupt() high_isr(void){
         
         timer0AddPreset(TMR0_PRESET);
         TMR0_INTERRUPT_FLAG = 0;
+    }
+}
+
+void __interrupt(low_priority) low_isr(void){
+    
+    if(MSSP_INTERRUPT_FLAG){
+        
+        i2cReleaseClock();
+        MSSP_INTERRUPT_FLAG = 0;
     }
 }
 

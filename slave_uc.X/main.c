@@ -13,6 +13,7 @@
 #include "drivers/oscillators.h"
 #include "drivers/gpio.h"
 #include "drivers/timers.h"
+#include "drivers/i2c.h"
 
 void systemInit(void);
 
@@ -33,4 +34,5 @@ void systemInit(void){
     interruptInit();
     gpioInit();
     timer0Init();
+    i2cInit();
 }

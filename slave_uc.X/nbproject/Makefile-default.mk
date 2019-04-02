@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=applications/application.c drivers/oscillators.c drivers/gpio.c drivers/timers.c services/interrupts.c services/ledService.c main.c services/lcdService.c
+SOURCEFILES_QUOTED_IF_SPACED=applications/application.c drivers/oscillators.c drivers/gpio.c drivers/timers.c services/interrupts.c services/ledService.c services/lcdService.c main.c drivers/i2c.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/applications/application.p1 ${OBJECTDIR}/drivers/oscillators.p1 ${OBJECTDIR}/drivers/gpio.p1 ${OBJECTDIR}/drivers/timers.p1 ${OBJECTDIR}/services/interrupts.p1 ${OBJECTDIR}/services/ledService.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/services/lcdService.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/applications/application.p1.d ${OBJECTDIR}/drivers/oscillators.p1.d ${OBJECTDIR}/drivers/gpio.p1.d ${OBJECTDIR}/drivers/timers.p1.d ${OBJECTDIR}/services/interrupts.p1.d ${OBJECTDIR}/services/ledService.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/services/lcdService.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/applications/application.p1 ${OBJECTDIR}/drivers/oscillators.p1 ${OBJECTDIR}/drivers/gpio.p1 ${OBJECTDIR}/drivers/timers.p1 ${OBJECTDIR}/services/interrupts.p1 ${OBJECTDIR}/services/ledService.p1 ${OBJECTDIR}/services/lcdService.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/drivers/i2c.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/applications/application.p1.d ${OBJECTDIR}/drivers/oscillators.p1.d ${OBJECTDIR}/drivers/gpio.p1.d ${OBJECTDIR}/drivers/timers.p1.d ${OBJECTDIR}/services/interrupts.p1.d ${OBJECTDIR}/services/ledService.p1.d ${OBJECTDIR}/services/lcdService.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/drivers/i2c.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/applications/application.p1 ${OBJECTDIR}/drivers/oscillators.p1 ${OBJECTDIR}/drivers/gpio.p1 ${OBJECTDIR}/drivers/timers.p1 ${OBJECTDIR}/services/interrupts.p1 ${OBJECTDIR}/services/ledService.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/services/lcdService.p1
+OBJECTFILES=${OBJECTDIR}/applications/application.p1 ${OBJECTDIR}/drivers/oscillators.p1 ${OBJECTDIR}/drivers/gpio.p1 ${OBJECTDIR}/drivers/timers.p1 ${OBJECTDIR}/services/interrupts.p1 ${OBJECTDIR}/services/ledService.p1 ${OBJECTDIR}/services/lcdService.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/drivers/i2c.p1
 
 # Source Files
-SOURCEFILES=applications/application.c drivers/oscillators.c drivers/gpio.c drivers/timers.c services/interrupts.c services/ledService.c main.c services/lcdService.c
+SOURCEFILES=applications/application.c drivers/oscillators.c drivers/gpio.c drivers/timers.c services/interrupts.c services/ledService.c services/lcdService.c main.c drivers/i2c.c
 
 
 CFLAGS=
@@ -141,6 +141,14 @@ ${OBJECTDIR}/services/ledService.p1: services/ledService.c  nbproject/Makefile-$
 	@-${MV} ${OBJECTDIR}/services/ledService.d ${OBJECTDIR}/services/ledService.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/services/ledService.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/services/lcdService.p1: services/lcdService.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/services" 
+	@${RM} ${OBJECTDIR}/services/lcdService.p1.d 
+	@${RM} ${OBJECTDIR}/services/lcdService.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/services/lcdService.p1 services/lcdService.c 
+	@-${MV} ${OBJECTDIR}/services/lcdService.d ${OBJECTDIR}/services/lcdService.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/services/lcdService.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
@@ -149,13 +157,13 @@ ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/services/lcdService.p1: services/lcdService.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/services" 
-	@${RM} ${OBJECTDIR}/services/lcdService.p1.d 
-	@${RM} ${OBJECTDIR}/services/lcdService.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/services/lcdService.p1 services/lcdService.c 
-	@-${MV} ${OBJECTDIR}/services/lcdService.d ${OBJECTDIR}/services/lcdService.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/services/lcdService.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/drivers/i2c.p1: drivers/i2c.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/drivers" 
+	@${RM} ${OBJECTDIR}/drivers/i2c.p1.d 
+	@${RM} ${OBJECTDIR}/drivers/i2c.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/drivers/i2c.p1 drivers/i2c.c 
+	@-${MV} ${OBJECTDIR}/drivers/i2c.d ${OBJECTDIR}/drivers/i2c.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/drivers/i2c.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/applications/application.p1: applications/application.c  nbproject/Makefile-${CND_CONF}.mk
@@ -206,6 +214,14 @@ ${OBJECTDIR}/services/ledService.p1: services/ledService.c  nbproject/Makefile-$
 	@-${MV} ${OBJECTDIR}/services/ledService.d ${OBJECTDIR}/services/ledService.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/services/ledService.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/services/lcdService.p1: services/lcdService.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/services" 
+	@${RM} ${OBJECTDIR}/services/lcdService.p1.d 
+	@${RM} ${OBJECTDIR}/services/lcdService.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/services/lcdService.p1 services/lcdService.c 
+	@-${MV} ${OBJECTDIR}/services/lcdService.d ${OBJECTDIR}/services/lcdService.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/services/lcdService.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
@@ -214,13 +230,13 @@ ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/services/lcdService.p1: services/lcdService.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/services" 
-	@${RM} ${OBJECTDIR}/services/lcdService.p1.d 
-	@${RM} ${OBJECTDIR}/services/lcdService.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/services/lcdService.p1 services/lcdService.c 
-	@-${MV} ${OBJECTDIR}/services/lcdService.d ${OBJECTDIR}/services/lcdService.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/services/lcdService.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/drivers/i2c.p1: drivers/i2c.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/drivers" 
+	@${RM} ${OBJECTDIR}/drivers/i2c.p1.d 
+	@${RM} ${OBJECTDIR}/drivers/i2c.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/drivers/i2c.p1 drivers/i2c.c 
+	@-${MV} ${OBJECTDIR}/drivers/i2c.d ${OBJECTDIR}/drivers/i2c.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/drivers/i2c.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
